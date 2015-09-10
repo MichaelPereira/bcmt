@@ -1,5 +1,7 @@
 #! /bin/sh
 
+source helper.sh
+
 user()
 {
 	local username="$1"
@@ -8,9 +10,11 @@ user()
 		create_user "$username"
 		if [[ $? -ne 0 ]]; then
 		{
-			echo "user $username could not be created"
+			report_error "user $username could not be created"
 			cat /tmp/user.log
 		}
+		else
+			report_success "* User $username created successfully"
 		fi
 	fi
 
@@ -19,7 +23,8 @@ user()
 user_exists()
 {
 	local username="$1"
-	if  [[ $(grep -c "$username" /etc/passwd) -eq 1 ]]; then
+	if  [[ $(grep -c "$username" /etc/passwd) -ne 0 ]]; then
+		report_exist "* User $username exists"
 		return 0
 	else
 		return 1
