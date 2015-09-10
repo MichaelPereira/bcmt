@@ -11,7 +11,7 @@ file()
 		if [[ $? -ne 0 ]]; then
 		{
 			report_error "* File $filename could not be created"
-			cat /tmp/user.log
+			cat /tmp/file.log
 		}
 		else
 			report_success "* File $filename created successfully"
@@ -36,5 +36,5 @@ create_file()
 {
 	local filename="$1"
 
-	touch "$filename"
+	touch "$filename" > /tmp/file.log 2>&1
 }

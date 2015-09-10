@@ -3,8 +3,9 @@
 source resources/user.sh
 source resources/group.sh
 source resources/file.sh
-#source resources/folder.sh
-#source resources/webserver.sh
+source resources/folder.sh
+source resources/package.sh
+source resources/webserver.sh
 
 user "john"
 
