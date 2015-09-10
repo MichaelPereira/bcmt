@@ -8,14 +8,16 @@ user()
 
 	if ! user_exists "$username"; then
 		create_user "$username"
-		if [[ $? -ne 0 ]]; then
 		{
-			report_error "user $username could not be created"
-			cat /tmp/user.log
+			if [[ $? -ne 0 ]]; then
+			{
+				report_error "user $username could not be created"
+				cat /tmp/user.log
+			}
+			else
+				report_success "* User $username created successfully"
+			fi
 		}
-		else
-			report_success "* User $username created successfully"
-		fi
 	fi
 
 }

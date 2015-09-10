@@ -1,18 +1,20 @@
 #!/bin/bash
 
 source resources/user.sh
-source resources/group.sh
-source resources/file.sh
-source resources/folder.sh
-source resources/package.sh
-source resources/webserver.sh
+#source resources/group.sh
+#source resources/file.sh
+#source resources/folder.sh
+#source resources/package.sh
+#source resources/webserver.sh
 
 user "john"
 
-group "dev"
+#group "dev"
 
-file "toto"
+#file "some_file"
 
-folder "/tmp/folder"
+#file "/tmp/folder/new_file"
 
-webserver "apache2"
+#folder "/tmp/folder"
+
+#webserver "apache2"
